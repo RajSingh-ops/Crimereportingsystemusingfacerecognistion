@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crime Reporting System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- LOGIN VIEW -->
+  <div id="login-container" class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p class="signup-text">
+      Don’t have an account? 
+      <a href="signup.html" class="signup-link">Sign up</a>
+    </p>
+  </div>
+
+  <!-- HOME VIEW (hidden until login) -->
+  <div id="home-container" class="home-container">
+    <h1>Welcome to Crime Reporting System</h1>
+    <a href="http://127.0.0.1:3000/verify"><button id="report-crime-btn">Find Criminal</button></a>
+    <a href ="http://127.0.0.1:3000/"><button id="add-image-btn">Add Image</button>
+    <button id="logout-btn">Logout</button>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const loginDiv  = document.getElementById('login-container');
+    const homeDiv   = document.getElementById('home-container');
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      // Demo credentials
+      if (user === 'admin' && pass === 'admin') {
+        loginDiv.style.display = 'none';
+        homeDiv.style.display  = 'flex';
+      } else {
+        alert('Invalid credentials.\n\nTry admin / admin');
+      }
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', function() {
+      homeDiv.style.display  = 'none';
+      loginDiv.style.display = 'flex';
+      loginForm.reset();
+    });
+
+    document.getElementById('report-crime-btn').addEventListener('click', function() {
+      alert('Here you would open your \"Report a Crime\" form.');
+    });
+
+    document.getElementById('add-image-btn').addEventListener('click', function() {
+      alert('Here you would open your \"Add Image\" dialog.');
+    });
+  </script>
+</body>
+</html>
