@@ -7,7 +7,9 @@ const VerifyFace = () => {
   const [result, setResult] = useState(null);
 
   const captureAndSend = async () => {
+    if (!webcamRef.current) return;
     const imageSrc = webcamRef.current.getScreenshot();
+    if (!imageSrc) return;
     const blob = await (await fetch(imageSrc)).blob();
     const file = new File([blob], "capture.jpg", { type: "image/jpeg" });
 

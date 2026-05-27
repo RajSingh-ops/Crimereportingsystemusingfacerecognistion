@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- LOGIN VIEW -->
   <div id="login-container" class="login-container">
     <h2>Login</h2>
     <form id="login-form">
@@ -21,11 +20,10 @@
     </p>
   </div>
 
-  <!-- HOME VIEW (hidden until login) -->
   <div id="home-container" class="home-container">
     <h1>Welcome to Crime Reporting System</h1>
     <a href="http://127.0.0.1:3000/verify"><button id="report-crime-btn">Find Criminal</button></a>
-    <a href ="http://127.0.0.1:3000/"><button id="add-image-btn">Add Image</button>
+    <a href="http://127.0.0.1:3000/"><button id="add-image-btn">Add Image</button></a>
     <button id="logout-btn">Logout</button>
   </div>
 
@@ -39,7 +37,6 @@
       const user = document.getElementById('username').value.trim();
       const pass = document.getElementById('password').value.trim();
 
-      // Demo credentials
       if (user === 'admin' && pass === 'admin') {
         loginDiv.style.display = 'none';
         homeDiv.style.display  = 'flex';
